@@ -1,4 +1,4 @@
-﻿:Namespace RikedyP ⍝ v0.1
+﻿:Namespace RikedyP ⍝ v0.2
 ⍝ Custom user commands
 
     ⎕IO←1 ⋄ ⎕ML←1
@@ -28,8 +28,8 @@
 
       LS←{
           0∊⍴⍵:∇⊃1 ⎕NPARTS''   ⍝ Default to current directory
-          dir←NormalPath ⍵
-          1≠1 ⎕NINFO dir:'Argument provided does not specify a directory.'
+          1≠1 ⎕NINFO ⍵:'Argument provided does not specify a directory.'
+          dir←PlatformPath⊃1 ⎕NPARTS NormalPath ⍵
           r←⊂'Listing contents of ',dir
           (c t)←0 1(⎕NINFO ⎕OPT 1)dir,'*'
           c←PlatformPath¨c
@@ -39,7 +39,7 @@
 
       NormalPath←{
      ⍝ Remove double quotes; ensure trailing slash; normalise slashes by OS
-          PlatformPath path,'/'/⍨~∨/'/\'∊⊃⌽path←⍵~'"'
+          path,'/'/⍨~∨/'/\'∊⊃⌽path←⍵~'"'
       }
 
       PlatformPath←{
