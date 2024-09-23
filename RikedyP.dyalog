@@ -6,7 +6,7 @@
     ∇ r←List
       r←,⎕NS ⍬
     ⍝ Name, group, short description and parsing rules
-      r.Name←⊆'ls'
+      r.Name←⊆'LS'
       r.Group←⊆'RikedyP'
       r[1].Desc←'List directory contents'
       r.Parse←⊆'' ⍝ ENTER NUMBER OF ARGS AND OPTIONALLY -modifiers HERE (for details, see https://docs.dyalog.com/20.0/User%20Commands%20User%20Guide.pdf#page=18 )
@@ -14,7 +14,7 @@
 
     ∇ r←Run(cmd input)
       :Select cmd
-      :Case 'ls'
+      :Case 'LS'
           r←LS input
       :EndSelect
     ∇
